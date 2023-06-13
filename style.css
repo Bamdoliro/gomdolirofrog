@@ -8,7 +8,6 @@ body {
     align-items: center;
 }
 h1 {
-    border-bottom: 1px solid rgb(224, 223, 223);
     text-align: center;
 }
 h2 {
@@ -21,12 +20,33 @@ h2 {
     display: none;
     justify-content: center;
     width: 10vw;
+    margin-top: 3em;
+    background: transparent;
+    border: 1px solid rgb(158, 157, 157);
+    box-shadow: 0 0 5px;
+}
+.gameOver:hover {
+    background-color: rgb(238, 236, 236);
 }
 .gameStart {
     display: flex;
     width: 10vw;
     justify-content: center;
     align-items: center;
+    margin-top: 3em;
+    background: transparent;
+    border: 1px solid rgb(209, 209, 209);
+    box-shadow: 0 0 5px;
+}
+.gameStart:hover {
+    background-color: rgb(238, 236, 236);
+}
+.submit {
+    background-color: black;
+    border: none;
+    color: white;
+    width: 40px;
+    border-radius: 5px;
 }
 .form-outline {
     display: flex;
@@ -39,9 +59,12 @@ h2 {
     border: 1px solid rgb(209, 209, 209);
     border-radius: 10px;
     backdrop-filter: blur(3px);
+    box-shadow: 0 0 10px;
 }
 .header {
-    width: 100%;
+    width: 40%;
+    border: 1px solid rgb(217, 214, 214);
+    border-radius: 10px;
 }
 .sqare {
     position: absolute;

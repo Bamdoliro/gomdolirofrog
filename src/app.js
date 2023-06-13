@@ -43,13 +43,16 @@ const onGameOver = () => {
 }
 const onSubmitClick = (event) => {
   event.preventDefault();
-  if (input.value === char) {
+  if (input.value == '') {
+    alert('값을 입력해야 합니다!');
+  }
+  else if (input.value === char) {
     console.log('정답');
     input.value = '';
     scoreNumber += 5;
     score.innerText = '점수 : ' + scoreNumber;
   }
-  else {
+  else if (input.value !== char ) {
     console.log('오답');
     scoreNumber -= 3;
     score.innerText = '점수 : ' + scoreNumber;
