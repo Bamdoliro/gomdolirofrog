@@ -27,6 +27,7 @@ const onGameStart = () => {
   form.style.display = 'flex';
   gameOver.style.display = 'flex';
   gameStart.style.display = 'none';
+  input.focus();
   h2.innerText = '제시된 단어 : ' + randomValue;
   char = randomValue;
   score.innerText = '점수 : ' + 0;
