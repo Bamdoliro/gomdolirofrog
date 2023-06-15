@@ -22,16 +22,25 @@ const score = document.querySelector('.score');
 let char = ''; // 함수 안에서 지역변수로 랜덤값을 뽑아냈기 때문에 그 값을 전역변수에 저장해준다.
 let scoreNumber = 0; // 점수를 추가,제거 할 전역변수 추가
 
-const onGameStart = () => {
+const changeRandomValue = () => {
   const randomValue = words[Math.floor(Math.random() * words.length)];
   // Math.random 메서드를 이용해 0~1 사이 랜덤 수 추출 후 배열 길이를 곱해준다.
   // 그 값에 Math.floor 함수를 이용하여 내림을 해준다. 그러면 성공적으로 랜덤으로 배열 값을 뽑아낼 수 있다.
+  randomWord.innerText = '제시된 단어 : ' + randomValue;
+  char = randomValue;
+}
+
+const changeScore = () => {
+  score.innerText = '점수 : ' + scoreNumber;
+  input.value = '';
+}
+
+const onGameStart = () => {
   form.style.display = 'flex';
   gameOver.style.display = 'flex';
   gameStart.style.display = 'none';
   input.focus();
-  randomWord.innerText = '제시된 단어 : ' + randomValue;
-  char = randomValue;
+  changeRandomValue();
   score.innerText = '점수 : ' + 0;
 }
 const onGameOver = () => {
@@ -50,19 +59,16 @@ const onSubmitClick = (event) => {
   }
   else if (input.value === char) {
     console.log('정답');
-    input.value = '';
     scoreNumber += 5;
-    score.innerText = '점수 : ' + scoreNumber;
+    changeScore();
   }
   else if (input.value !== char ) {
     console.log('오답');
     scoreNumber -= 3;
-    score.innerText = '점수 : ' + scoreNumber;
-    input.value = '';
+    changeScore();
   }
-  const randomValue = words[Math.floor(Math.random() * words.length)]; 
+  changeRandomValue();
   randomWord.innerText = '제시된 단어 : ' + randomValue;
-  char = randomValue;
 }
 
 gameStart.addEventListener('click',onGameStart);
