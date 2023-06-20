@@ -40,16 +40,16 @@ const onGameStart = () => {
   gameOver.style.display = 'flex';
   gameStart.style.display = 'none';
   input.focus();
-  changeRandomValue();
   score.innerText = '점수 : ' + 0;
+  changeRandomValue();
 }
 const onGameOver = () => {
   randomWord.innerText = '';
+  score.innerText = '';
   gameOver.style.display = 'none';
   gameStart.style.display = 'flex';
   form.style.display = 'none';
   scoreNumber = 0;
-  score.innerText = '';
   alert('게임이 정상적으로 종료되었습니다.');
 }
 const onSubmitClick = (event) => {
