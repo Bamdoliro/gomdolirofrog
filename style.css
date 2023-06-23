@@ -19,27 +19,33 @@ h2 {
 .gameOver {
     display: none;
     justify-content: center;
-    width: 10vw;
-    margin-top: 3em;
-    background: transparent;
-    border: 1px solid rgb(158, 157, 157);
-    box-shadow: 0 0 5px;
+    width: 20vw;
+    height: 5vh;
+    margin-top: 2em;
+    border: none;
+    background-color: rgb(227, 101, 101);
+    color: white;
+    border-radius: 10px;
+    font-size: 27px;
 }
 .gameOver:hover {
-    background-color: rgb(238, 236, 236);
+    background-color: rgb(192, 58, 58);
 }
 .gameStart {
     display: flex;
-    width: 10vw;
+    width: 20vw;
+    height: 5vh;
     justify-content: center;
     align-items: center;
-    margin-top: 3em;
-    background: transparent;
-    border: 1px solid rgb(209, 209, 209);
-    box-shadow: 0 0 5px;
+    margin-top: 2em;
+    background-color: rgb(87, 87, 219);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 27px;
 }
 .gameStart:hover {
-    background-color: rgb(238, 236, 236);
+    background-color: rgb(62, 62, 159);
 }
 .submit {
     background-color: black;
@@ -62,33 +68,7 @@ h2 {
     box-shadow: 0 0 10px;
 }
 .header {
+    position: absolute;
     width: 40%;
-    border: 1px solid rgb(217, 214, 214);
-    border-radius: 10px;
-}
-.shape {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-}
-.shape:first-child {
-    z-index: -1;
-    left: -80px;
-    top: -80px;
-    background-color: rgb(87, 87, 219);
-}
-.shape:last-child {
-    background-color: rgb(211, 78, 78);
-    right: -140px;
-    bottom: -80px;
-}
-.background {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    transform: translate(-60%,-40%);
-    left: 50%;
-    top: 44%;
-    z-index: -2;
+    top: 1em;
 }
