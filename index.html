@@ -9,15 +9,16 @@
 </head>
 <body>
     <h1>단어 게임</h1>
-    <div class="button">
-        <button id="start" onclick="startButton()">게임 시작</button>
-        <button id="end" onclick="endButton()">게임 끝내기</button>
-    </div>
-    <br>
-    <p id="word"></p>
     <h3>score: <p style="display:inline;" id="score"></p></h3>
+    <p id="word"></p>
     <div class="text">
     <input id='myanswer' onchange='inputAnswer()' value=""/>
+    </div>
+    <br>
+    <br>
+    <div class="button">
+        <button id="start" onclick="startButton()">게임 시작</button> &nbsp;&nbsp;
+        <button id="end" onclick="endButton()">게임 끝내기</button>
     </div>
     <script>
         const _words = ["apple",
