@@ -25,6 +25,7 @@ const time = document.querySelector('.time');
 let timer = 5; // 타이머 기본값
 let char = ''; // 함수 안에서 지역변수로 랜덤값을 뽑아냈기 때문에 그 값을 전역변수에 저장해준다.
 let scoreNumber = 0; // 점수를 추가,제거 할 전역변수 추가
+let setTime;
 
 input.addEventListener('input', (event) => {
   event.target.value = event.target.value.replace(/[^a-zA-Z\s]/g, ''); // 영어일때만 작성 가능
@@ -47,6 +48,8 @@ const changeScore = () => {
   input.value = '';
 }
 
+
+
 const onGameStart = () => {
   form.style.display = 'flex';
   gameOver.style.display = 'flex';
@@ -55,7 +58,7 @@ const onGameStart = () => {
   score.innerText = '점수 : ' + 0;
   time.innerText = `타이머 : ${timer}`
   changeRandomValue();
-  const setTime = setInterval(() => {
+  setTime = setInterval(() => {
     timer -= 1;
     time.innerText = `타이머 : ${timer}`;
     if (timer == 0) {
@@ -66,14 +69,16 @@ const onGameStart = () => {
   },1000)
 }
 const onGameOver = () => {
+  
   randomWord.innerText = '';
   score.innerText = '';
   time.innerText = '';
   gameOver.style.display = 'none';
   gameStart.style.display = 'flex';
   form.style.display = 'none';
+  clearInterval(setTime);
   const li = document.createElement('li');
-  li.textContent = `점수는 : ${scoreNumber}`;
+  li.textContent = `점수 : ${scoreNumber}`;
   maxScore.appendChild(li);
   alert(`게임이 정상적으로 종료되었습니다. 점수는 ${scoreNumber}점 입니다.`);
   input.value = '';
