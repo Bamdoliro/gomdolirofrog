@@ -9,11 +9,16 @@
 </head>
 <body>
     <h1>단어 게임</h1>
-    <button id="start" onclick="startButton()">게임 시작</button>
-    <button id="end" onclick="endButton()">게임 끝내기</button>
-    <input id='myanswer' onchange='inputAnswer()' value=""/>
+    <div class="button">
+        <button id="start" onclick="startButton()">게임 시작</button>
+        <button id="end" onclick="endButton()">게임 끝내기</button>
+    </div>
+    <br>
     <p id="word"></p>
-    <p id="score"></p>
+    <h3>score: <p style="display:inline;" id="score"></p></h3>
+    <div class="text">
+    <input id='myanswer' onchange='inputAnswer()' value=""/>
+    </div>
     <script>
         const _words = ["apple",
         "banana",
@@ -122,13 +127,21 @@
 
         //score 변수 선언
         var score = 0;
+        //n=startbutton이 눌렸는지 안 눌렸는지를 구분해줄 변수
+        var n=0;
+
         //score 출력
         scoreFunction()
+
+        //랜덤 단어 출력
+        printRandomWord();
+
         //게임 시작 버튼
         function startButton(){
             score = 0;
-            //랜덤 단어 출력
-            printRandomWord();
+            //startbutton이 눌려지면 n에 1값을 넣는다
+            n=1;
+            alert("게임이 시작되었습니다");
         }
         //score 출력 함수
         function scoreFunction (){
@@ -148,24 +161,33 @@
         function inputAnswer(){
             const word = document.getElementById("word").innerHTML;
             const myanswer = document.getElementById('myanswer').value;
-            //랜덤 단어와 입력 단어가 일치할 경우 5점 추가
-            if(word===myanswer){
-                score += 5;
+            //n이 1일때만 실행
+            if(n==1){
+                //랜덤 단어와 입력 단어가 일치할 경우 5점 추가
+                if(word===myanswer){
+                    score += 5;
+                }
+                //랜덤 단어와 입력 단어가 불일치할 경우 3점 감점
+                else{
+                    score -= 3;
+                }
+                //바뀐 score값 출력
+                scoreFunction();
+                //다른 무작위 단어를 다시 출력
+                printRandomWord();
+                //텍스트박스 빈칸으로 만들어주기
+                document.getElementById("myanswer").value="";
             }
-            //랜덤 단어와 입력 단어가 불일치할 경우 3점 감점
-            else{
-                score -= 3;
-            }
-            //바뀐 score값 출력
-            scoreFunction()
-            printRandomWord()
-            document.getElementById("myanswer").value="";
         }
         //게임 끝나기 버튼
         function endButton(){
             //score값 초기화
             score = 0;
-            scoreFunction()
+            scoreFunction();
+            //n에 0값을 넣어 게임이 실행되지 않게 한다
+            n=0;
+            //알림창을 통하여 게임이 종료되었음을 알린다
+            alert("게임이 정상적으로 종료되었습니다");
         }
     </script>
 </body>
