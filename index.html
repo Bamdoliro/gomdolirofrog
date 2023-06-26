@@ -14,17 +14,23 @@
     <div class="form-outline">
         <h2 class="time"></h2>
     <!-- 점수판 -->
-        <h2 class="maxScore"></h2>
         <h2 class="score"></h2>
     <!-- 무작위 단어 -->
         <h2 class="random-word"></h2>
     <!-- 입력 필드 -->
     <!-- 입력 버튼 -->
+        <select class="selectTime">
+            <option value=5>5초</option>
+            <option value=10>10초</option>
+            <option value=20>20초</option>
+            <option value=30>30초</option>
+        </select>
         <form class="form">
             <input class="input" type="text">
             <button class="submit">제출</button>
         </form>
     </div>
+    <ul class="maxScore"></ul>
     <!-- 게임 시작하기, 끝내기 버튼 -->
     <button class="gameStart">게임 시작</button>
     <button class="gameOver">게임 종료</button>

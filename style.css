@@ -57,7 +57,7 @@ h2 {
 .form-outline {
     display: flex;
     flex-direction: column;
-    margin-top: 5em;
+    margin-top: 80px;
     width: 400px;
     height: 400px;
     justify-content: center;
@@ -71,4 +71,16 @@ h2 {
     position: absolute;
     width: 40%;
     top: 1em;
+}
+.maxScore {
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    height: 500px;
+    border: 2px solid black;
+    border-radius: 5px;
+    left: 15%;
+    list-style-type: none;
+    font-size: 15px;
+    margin-top: 80px;
 }

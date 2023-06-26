@@ -12,6 +12,7 @@
 
 import words from "../data/\bwords.js";
 
+const selectTime = document.querySelector('.selectTime');
 const maxScore = document.querySelector('.maxScore');
 const gameStart = document.querySelector('.gameStart');
 const gameOver = document.querySelector('.gameOver');
@@ -21,9 +22,21 @@ const submit = document.querySelector('.submit');
 const form = document.querySelector('.form');
 const score = document.querySelector('.score');
 const time = document.querySelector('.time');
-let timer = 10;
+let timer = 5; // 타이머 기본값
 let char = ''; // 함수 안에서 지역변수로 랜덤값을 뽑아냈기 때문에 그 값을 전역변수에 저장해준다.
 let scoreNumber = 0; // 점수를 추가,제거 할 전역변수 추가
+
+input.addEventListener('input', (event) => {
+  const inputValue = event.target.value;
+  const englishInput = /^[a-zA-Z\s]*$/;
+  if (!englishInput.test(inputValue)) { // inputValue와 영어 정규식이 같지않다면 공백으로 표시
+    event.target.value = inputValue.replace(/[^a-zA-Z\s]/g, '');
+  }
+})
+
+selectTime.addEventListener('change', (event) => {
+  timer = event.target.value;   
+})
 
 const changeRandomValue = () => {
   const randomValue = words[Math.floor(Math.random() * words.length)];
@@ -52,6 +65,7 @@ const onGameStart = () => {
     if (timer == 0) {
       clearInterval(setTime);
       onGameOver();
+      timer = 5;
     }
   },1000)
 }
@@ -62,7 +76,11 @@ const onGameOver = () => {
   gameOver.style.display = 'none';
   gameStart.style.display = 'flex';
   form.style.display = 'none';
+  const li = document.createElement('li');
+  li.textContent = `점수는 : ${scoreNumber}`;
+  maxScore.appendChild(li);
   alert(`게임이 정상적으로 종료되었습니다. 점수는 ${scoreNumber}점 입니다.`);
+  input.value = '';
   scoreNumber = 0;
 }
 const onSubmitClick = (event) => {
