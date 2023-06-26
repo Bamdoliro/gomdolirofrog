@@ -12,6 +12,7 @@
 
 import words from "../data/\bwords.js";
 
+const maxScore = document.querySelector('.maxScore');
 const gameStart = document.querySelector('.gameStart');
 const gameOver = document.querySelector('.gameOver');
 const randomWord = document.querySelector('.random-word');
@@ -19,6 +20,8 @@ const input = document.querySelector('.input');
 const submit = document.querySelector('.submit');
 const form = document.querySelector('.form');
 const score = document.querySelector('.score');
+const time = document.querySelector('.time');
+let timer = 10;
 let char = ''; // 함수 안에서 지역변수로 랜덤값을 뽑아냈기 때문에 그 값을 전역변수에 저장해준다.
 let scoreNumber = 0; // 점수를 추가,제거 할 전역변수 추가
 
@@ -41,16 +44,26 @@ const onGameStart = () => {
   gameStart.style.display = 'none';
   input.focus();
   score.innerText = '점수 : ' + 0;
+  time.innerText = `타이머 : ${timer}`
   changeRandomValue();
+  const setTime = setInterval(() => {
+    timer -= 1;
+    time.innerText = `타이머 : ${timer}`;
+    if (timer == 0) {
+      clearInterval(setTime);
+      onGameOver();
+    }
+  },1000)
 }
 const onGameOver = () => {
   randomWord.innerText = '';
   score.innerText = '';
+  time.innerText = '';
   gameOver.style.display = 'none';
   gameStart.style.display = 'flex';
   form.style.display = 'none';
+  alert(`게임이 정상적으로 종료되었습니다. 점수는 ${scoreNumber}점 입니다.`);
   scoreNumber = 0;
-  alert('게임이 정상적으로 종료되었습니다.');
 }
 const onSubmitClick = (event) => {
   event.preventDefault(); // 기본 동작 방지
