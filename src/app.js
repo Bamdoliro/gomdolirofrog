@@ -27,12 +27,8 @@ let char = ''; // 함수 안에서 지역변수로 랜덤값을 뽑아냈기 때
 let scoreNumber = 0; // 점수를 추가,제거 할 전역변수 추가
 
 input.addEventListener('input', (event) => {
-  const inputValue = event.target.value;
-  const englishInput = /^[a-zA-Z\s]*$/;
-  if (!englishInput.test(inputValue)) { // inputValue와 영어 정규식이 같지않다면 공백으로 표시
-    event.target.value = inputValue.replace(/[^a-zA-Z\s]/g, '');
-  }
-})
+  event.target.value = event.target.value.replace(/[^a-zA-Z\s]/g, ''); // 영어일때만 작성 가능
+});
 
 selectTime.addEventListener('change', (event) => {
   timer = event.target.value;   
