@@ -1,0 +1,13 @@
+{
+  "name": "gomdolirofrog",
+  "version": "1.0.0",
+  "description": "> **단어 게임** 기능 구현하기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "type": "module"
+}
