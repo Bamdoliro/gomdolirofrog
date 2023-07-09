@@ -12,16 +12,16 @@
 
 import words from "../data/\bwords.js";
 
-const selectTime = document.querySelector('.selectTime');
-const maxScore = document.querySelector('.maxScore');
-const gameStart = document.querySelector('.gameStart');
-const gameOver = document.querySelector('.gameOver');
-const randomWord = document.querySelector('.random-word');
-const input = document.querySelector('.input');
-const submit = document.querySelector('.submit');
-const form = document.querySelector('.form');
-const score = document.querySelector('.score');
-const time = document.querySelector('.time');
+const selectTime = document.getElementById('selectTime');
+const maxScore = document.getElementById('maxScore');
+const gameStart = document.getElementById('gameStart');
+const gameOver = document.getElementById('gameOver');
+const randomWord = document.getElementById('random-word');
+const input = document.getElementById('input');
+const submit = document.getElementById('submit');
+const form = document.getElementById('form');
+const score = document.getElementById('score');
+const time = document.getElementById('time');
 let timer = 5; // 타이머 기본값
 let char = ''; // 함수 안에서 지역변수로 랜덤값을 뽑아냈기 때문에 그 값을 전역변수에 저장해준다.
 let scoreNumber = 0; // 점수를 추가,제거 할 전역변수 추가
@@ -54,6 +54,7 @@ const onGameStart = () => {
   form.style.display = 'flex';
   gameOver.style.display = 'flex';
   gameStart.style.display = 'none';
+  selectTime.style.display = 'none';
   input.focus();
   score.innerText = '점수 : ' + 0;
   time.innerText = `타이머 : ${timer}`
@@ -69,13 +70,13 @@ const onGameStart = () => {
   },1000)
 }
 const onGameOver = () => {
-  
   randomWord.innerText = '';
   score.innerText = '';
   time.innerText = '';
   gameOver.style.display = 'none';
   gameStart.style.display = 'flex';
   form.style.display = 'none';
+  selectTime.style.display = 'flex';
   clearInterval(setTime);
   const li = document.createElement('li');
   li.textContent = `점수 : ${scoreNumber}`;

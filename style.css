@@ -13,10 +13,10 @@ h1 {
 h2 {
     display: flex;
 }
-.form {
+#form {
     display: none;
 }
-.gameOver {
+#gameOver {
     display: none;
     justify-content: center;
     width: 20vw;
@@ -28,10 +28,10 @@ h2 {
     border-radius: 10px;
     font-size: 27px;
 }
-.gameOver:hover {
+#gameOver:hover {
     background-color: rgb(192, 58, 58);
 }
-.gameStart {
+#gameStart {
     display: flex;
     width: 20vw;
     height: 5vh;
@@ -44,17 +44,17 @@ h2 {
     color: white;
     font-size: 27px;
 }
-.gameStart:hover {
+#gameStart:hover {
     background-color: rgb(62, 62, 159);
 }
-.submit {
+#submit {
     background-color: black;
     border: none;
     color: white;
     width: 40px;
     border-radius: 3px;
 }
-.form-outline {
+#form-outline {
     display: flex;
     flex-direction: column;
     margin-top: 80px;
@@ -67,12 +67,12 @@ h2 {
     backdrop-filter: blur(3px);
     box-shadow: 0 0 10px;
 }
-.header {
+#header {
     position: absolute;
     width: 40%;
     top: 1em;
 }
-.maxScore {
+#maxScore {
     position: absolute;
     text-align: center;
     width: 200px;
@@ -83,4 +83,8 @@ h2 {
     list-style-type: none;
     font-size: 15px;
     margin-top: 80px;
+}
+
+li {
+    margin-top: 4px;
 }
