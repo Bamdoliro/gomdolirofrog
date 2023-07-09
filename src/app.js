@@ -83,7 +83,7 @@ const onGameOver = () => {
   selectTime.style.display = 'flex';
   clearInterval(setTime);
   const li = document.createElement('li');
-  li.textContent = `점수 : ${scoreNumber}`;
+  li.innerText = `점수 : ${scoreNumber}`;
   maxScore.appendChild(li);
   alert(`게임이 정상적으로 종료되었습니다. 점수는 ${scoreNumber}점 입니다.`);
   input.value = '';
